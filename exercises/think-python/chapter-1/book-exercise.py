@@ -10,7 +10,7 @@ total_shipping = first_shipping + (extra_shipping * 59)
 full_cost = all_books + total_shipping
 
 print("A discounted book costs:")
-print(round(discounted_book, 2))  # round( , number) rounds float to number
+print(round(discounted_book, 2))  # round( , number) rounds float to numberP
 print("Shipping for the first book costs:")
 print(first_shipping)
 print('and shipping for the remaining 59 books costs:')
