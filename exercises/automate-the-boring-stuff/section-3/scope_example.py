@@ -1,4 +1,4 @@
-# eggs variable isn't recognized when`spam()` function is called
+# eggs variable isn't recognized when `spam()` function is called
 # this is an example of local variable being used in global scope
 
 # def spam():

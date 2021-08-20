@@ -1,4 +1,6 @@
 .DS_Store
-.vscode.config.git
+.vscode
+.config.git
 config.js
 .nova
+.code-workspace
