@@ -7,9 +7,9 @@ name = input()
 print("Well, " + name + ", I am thinking of a number between one and 20.")
 secretNumber = random.randint(1, 20)
 
-print(
-    "DEBUG: Secret number is " + str(secretNumber)
-)  # This is temporary code that allows us to test the program by giving us the secret number ahead of time.
+print("DEBUG: Secret number is " + str(secretNumber))
+# This is temporary code that allows us to test the program by giving us
+# the secret number ahead of time.
 
 for guessesTaken in range(1, 7):
     print("Take a guess.")

@@ -1,8 +1,12 @@
 # in terminal
-import random  # imports random number module
+import random
+import sys
+import os
+import math  # imports random number module
 
 # `random.` tells python to look inside the `random` module,
 # randint only exists inside the `random` module
+
 random.randint(1, 10)  # picks random int() between 1-10
 
 # can import multiple modules at the same time like below
