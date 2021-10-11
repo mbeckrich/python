@@ -2,5 +2,9 @@
 .vscode
 .config.git
 config.js
-.nova
 .code-workspace
+.map
+package-lock.json
+node_modules
+package.json
+.config
