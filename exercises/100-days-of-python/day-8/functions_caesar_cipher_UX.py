@@ -64,3 +64,19 @@ while rerun == "yes":
     rerun = input(
         "Would you like to use the cipher again? Type 'yes' or 'no.' "
     )
+
+# Differences in her code
+# shift = shift % 26
+# Much simpler solution to todo 3:
+# if char in alphabet:
+#     position = alphabet.index(char)
+#     new_position = position + shift_amount
+#     end_text += alphabet[position]
+# else: end_text += char
+# should_continue = True
+# while should_continue:
+#     [function]
+# result = input()
+# if result == "no":
+#     should_continue = False
+#     print("Goodbye.")

@@ -15,8 +15,7 @@
         "type": "python",
         "request": "launch",
         "program": "${file}",
-        "console": "externalTerminal",
-        "terminal": "external"
+        "console": "externalTerminal"
       }
     ]
   }
