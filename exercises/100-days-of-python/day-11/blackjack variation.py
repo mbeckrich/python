@@ -29,16 +29,24 @@ while play_game:
         print(f"The dealer's visible card and score is: {dealer_hand[0]}.")
         if your_score == 21:
             if dealer_score == 21:
-                print("Dealer Blackjack! You lose.")
+                print(
+                    "You have Blackjack... Now let's check the dealer. Dealer"
+                    " Blackjack! You lose."
+                )
             print("Blackjack! Congrats, you won.")
             exit()
-    if confirm_start == "no":
+    else:
         exit()
 
-    confirm_again = input("Would you like to draw again?").lower()
+    confirm_again = input(
+        "Would you like to draw again? Type 'yes' or 'no.'"
+    ).lower()
     while confirm_again == "yes":
         for n in range(1):
             your_hand += card()
+            if 11 in your_hand:
+                your_hand.remove(11)
+                your_hand.append(1)
             your_score = sum(your_hand)
         if your_score == 21:
             print("Blackjack! Congrats, you won.")
@@ -52,7 +60,9 @@ while play_game:
         print(
             f"Your cards are now {your_hand}, making your score: {your_score}."
         )
-        confirm_again = input("Would you like to draw again?").lower()
+        confirm_again = input(
+            "Would you like to draw again? Type 'yes' or 'no.'"
+        ).lower()
 
     if dealer_score == 21:
         print(f"Blackjack! The dealer wins with a hand of {dealer_hand}.")
@@ -103,5 +113,4 @@ while play_game:
         print("You lose!")
         exit()
 
-    else:
-        play_game = False
+# She does most of the math/draws in functions. TODO: Revisit.
