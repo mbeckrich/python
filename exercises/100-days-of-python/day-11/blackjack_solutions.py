@@ -10,8 +10,7 @@ def deal_card():
     return card
 
 
-# Hint 6: Create a function called calculate_score that takes list as input
-# and returns score
+# Hint 6: Create a function called calculate_score that takes list as input and returns score
 
 # Hint 7: Check for blackjack: Ace + 10
 
@@ -72,8 +71,8 @@ def play_game():
         if user_score == 0 or computer_score == 0 or user_score > 21:
             is_game_over = True
 
-        # Hint 10: If game is not over, ask user if they want to draw another
-        # card. If no, game ends.
+        # Hint 10: If game is not over, ask user if they want to draw another card.
+        # If no, game ends.
         else:
             user_should_deal = input(
                 "Type 'y' to get another card or type 'n' to pass. "
