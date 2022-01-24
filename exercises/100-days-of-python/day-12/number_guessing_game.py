@@ -68,3 +68,18 @@ def win_con(guess):
 while guesses_remaining != 0:
     guesses_remaining -= 1
     win_con(game_loop())
+
+# differences in her code:
+# checks answer
+# def check_answer(guess, answer)
+# if guess > answer:
+# difficulty set
+# uses global constant for number of guesses
+# EASY_LEVEL_TURNS = 10
+# HARD_LEVEL_TURNS = 5
+# def set_difficulty():
+#     level = input("Choose a difficulty")
+#     if level == "easy":
+#         return EASY_LEVEL_TURNS
+#     else:
+#         return HARD_LEVEL_TURNS
