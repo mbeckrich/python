@@ -18,4 +18,8 @@ The waiter is a 'class' and the individual waiter is an 'object.'
 
 Object = Class (Pascal case):
 car = CarBlueprint()
+from car object, get speed attribute:
+car.speed <- object.attribute
 
+Function tied to an object is a method
+car.stop() <- object.method
