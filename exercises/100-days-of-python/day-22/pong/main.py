@@ -1,15 +1,40 @@
-from turtle import Screen
-from bars import Bars
+from turtle import Turtle, Screen
 
 screen = Screen()
 screen.setup(width=800, height=600)
 screen.bgcolor("black")
 screen.title("Pong")
-bars = Bars()
+screen.listen()
+screen.tracer(0)
 
-bars
+bar = Turtle("square")
+bar.penup()
+bar.color("white")
+bar.resizemode("user")
+bar.shapesize(stretch_wid=5, stretch_len=1)
+bar.goto(350, 0)
 
-screen.exitonclick()
+
+def up():
+    new_y = bar.ycor() + 20
+    return bar.goto(bar.xcor(), new_y)
+
+
+def down():
+    new_y = bar.ycor() - 20
+    return bar.goto(bar.xcor(), new_y)
+
+
+def bar_movement():
+    screen.onkey(key="Up", fun=up)
+    screen.onkey(key="Down", fun=down)
+
+
+game_is_on = True
+while game_is_on:
+    screen.update()
+    bar_movement()
+    screen.exitonclick()
 
 
 # Background
