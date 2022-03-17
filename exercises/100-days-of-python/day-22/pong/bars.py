@@ -1,30 +1,19 @@
-# from turtle import Turtle, Screen
-
-# UP = 90
-# DOWN = 270
-
-# screen = Screen()
-# screen.listen()
+from turtle import Turtle
 
 
-# class Bars:
-#     def __init__(self):
-#         self.bar_generator()
+class Bars(Turtle):
+    def __init__(self, side):
+        super().__init__()
+        self.shape("square")
+        self.color("white")
+        self.penup()
+        self.shapesize(stretch_wid=5, stretch_len=1)
+        self.goto(side)
 
-#     def bar_generator(self):
-#         bar = Turtle("square")
-#         bar.penup()
-#         bar.color("white")
-#         bar.resizemode("user")
-#         bar.shapesize(5, 1)
-#         bar.goto(350, 0)
+    def up(self):
+        new_y = self.ycor() + 20
+        self.goto(self.xcor(), new_y)
 
-#     def up(self):
-#         return self.forward(10)
-
-#     def down(self):
-#         return self.backward(10)
-
-#     def bar_movement(self):
-#         screen.onkey(key="Up", fun=self.up)
-#         screen.onkey(key="Down", fun=self.down)
+    def down(self):
+        new_y = self.ycor() - 20
+        self.goto(self.xcor(), new_y)
