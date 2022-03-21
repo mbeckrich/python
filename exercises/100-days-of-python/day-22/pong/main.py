@@ -1,6 +1,7 @@
 from turtle import Screen
 from bars import Bars
 from ball import Ball
+from score import Score
 import time
 
 screen = Screen()
@@ -10,6 +11,7 @@ screen.title("Pong")
 screen.tracer(0)
 
 ball = Ball()
+score = Score()
 right_bar = Bars((350, 0))
 left_bar = Bars((-350, 0))
 
@@ -19,9 +21,10 @@ screen.onkey(right_bar.down, "Down")
 screen.onkey(left_bar.up, "w")
 screen.onkey(left_bar.down, "s")
 
+game_speed = 0.1
 game_is_on = True
 while game_is_on:
-    time.sleep(0.1)
+    time.sleep(ball.move_speed)
     screen.update()
     ball.ball_movement()
 
@@ -35,6 +38,14 @@ while game_is_on:
         and ball.xcor() < -320
     ):
         ball.bounce_x()
+
+    if ball.xcor() > 380:
+        ball.reset()
+        score.left_point()
+
+    if ball.xcor() < -380:
+        ball.reset()
+        score.right_point()
 
 
 screen.exitonclick()
