@@ -12,10 +12,19 @@ class Player(Turtle):
         self.color("green")
         self.penup()
         self.seth(90)
-        self.goto(STARTING_POSITION)
+        self.return_to_start()
 
     def move_up(self):
         new_y = self.ycor() + MOVE_DISTANCE
         self.goto(self.xcor(), new_y)
+
+    def return_to_start(self):
+        self.goto(STARTING_POSITION)
+
+    def finish_line(self):
+        if self.ycor() > FINISH_LINE_Y:
+            return True
+        else:
+            return False
 
     # She uses self.forward()
