@@ -1,13 +1,9 @@
-# for each name in invited_names.txt:
-# replace the [name] placeholder witht he actual name
-# save the letters in the folder ready to send
-
 names = open("day-24/mail-merge/names/invited_names.txt", mode="r").readlines()
 
 letter = open(
     "day-24/mail-merge/letters/starting_letter.txt", mode="r"
 ).readlines()
-x = []
+# She uses .read()
 
 for replacement in letter:
     for name in names:
@@ -18,8 +14,14 @@ for replacement in letter:
         ) as new_letter:
             new_letter.write(replacement.replace("[name]", name))
 
-    # replacement.replace("[name],", f"{name},")
-# with open(
-#     "day-24/mail-merge/output/readytosend/sample.txt", mode="w"
-# ) as new_letter:
-#     new_letter.write(x)
+# Her code
+# with open() as names_file:
+#     names = names_file.readlines()
+
+# with open() as letter_file:
+#     letter_contents = letter_file.read()
+#     for name in names:
+#         stripped_name = name.srtip()
+#         new_letter = letter_contents.replace(var, stripped_name)
+#         with open(mode="w") as completed_letter:
+#             completed_letter.write(new_letter)
