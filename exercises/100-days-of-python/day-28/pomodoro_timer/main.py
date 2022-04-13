@@ -11,14 +11,43 @@ CHECK = "✔"
 WORK_MIN = 25
 SHORT_BREAK_MIN = 5
 LONG_BREAK_MIN = 20
+reps = 0
+timer = None
 
 # Timer reset
+
+
+def reset():
+    window.after_cancel(timer)
+    canvas.itemconfig(timer_text, text="00:00")
+    timer_label.config(text="Timer")
+    checkmark.config(text="")
+    global reps
+    reps = 0
+
 
 # Timer mechanism
 
 
 def start_timer():
-    count_down(5 * 60)
+    global reps
+    work_sec = WORK_MIN * 60
+    short_break_sec = SHORT_BREAK_MIN * 60
+    long_break_sec = LONG_BREAK_MIN * 60
+    reps += 1
+    if reps % 8 == 0:
+        count_down(long_break_sec)
+        timer_label.config(text="Long break", fg=RED)
+    elif reps % 2 == 0:
+        count_down(short_break_sec)
+        timer_label.config(text="Short break", fg=PINK)
+    else:
+        count_down(work_sec)
+        timer_label.config(text="Work", fg=GREEN)
+        marks = ""
+        for _ in range(math.floor(reps / 2)):
+            marks += CHECK
+        checkmark.config(text=marks)
 
 
 # Countdown mechanism
@@ -32,7 +61,11 @@ def count_down(count):
 
     canvas.itemconfig(timer_text, text=f"{count_min}:{count_sec}")
     if count > 0:
-        window.after(1000, count_down, count - 1)
+        global timer
+        timer = window.after(1000, count_down, count - 1)
+
+    else:
+        start_timer()
 
 
 # UI setup
@@ -55,7 +88,7 @@ canvas.grid(column=1, row=1)
 timer_label = tk.Label(text="Timer", font=(FONT_NAME, 32), bg=YELLOW, fg=GREEN)
 timer_label.grid(column=1, row=0)
 
-checkmark = tk.Label(text=CHECK, bg=YELLOW, fg=GREEN)
+checkmark = tk.Label(bg=YELLOW, fg=GREEN)
 checkmark.grid(column=1, row=3)
 
 # buttons
@@ -64,7 +97,7 @@ button_start = tk.Button(
 )
 button_start.grid(column=0, row=2)
 
-button_reset = tk.Button(text="Reset", highlightthickness=0)
+button_reset = tk.Button(text="Reset", command=reset, highlightthickness=0)
 button_reset.grid(column=2, row=2)
 
 window.mainloop()
